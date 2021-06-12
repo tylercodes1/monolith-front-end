@@ -1,7 +1,7 @@
 import React from "react";
 import "./UsersList.css";
 
-export default function UserList() {
+export default function UserList({ onSelect, selected }) {
   const users = [
     {
       email: "abc@gmail.com",
@@ -24,24 +24,44 @@ export default function UserList() {
       userId: 3,
       username: "RosieTheDog",
     },
+    {
+      email: "jkl@gmail.com",
+      firstName: "Kobe",
+      lastName: "TheDog",
+      userId: 4,
+      username: "KobeTheDog",
+    },
   ];
 
   return (
     <div>
       {users.map((user) => (
-        <UserCard user={user} key={user.userId} />
+        <UserCard
+          key={user.userId + user.username}
+          user={user}
+          onSelect={onSelect}
+          selected={selected}
+        />
       ))}
     </div>
   );
 }
 
-function UserCard(props) {
+function UserCard({ user, onSelect, selected}) {
   return (
-    <div className="user-card">
+    <div
+      className={Joiner("user-card", selected.userId === user.userId ? "selected-user" : "")}
+      onClick={() => onSelect(user)}
+    >
       <div className="user-icon">
-        <p>{props.user.username.substring(0, 1)}</p>
+        <p>{user.username.substring(0, 1)}</p>
       </div>
-      <p>{props.user.username}</p>
+      <p>{user.username}</p>
     </div>
   );
+}
+
+/** joins parameters into one string, separated with spaces */
+function Joiner(...styles) {
+  return styles.join(" ");
 }

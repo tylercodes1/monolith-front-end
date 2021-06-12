@@ -1,17 +1,35 @@
 .user-card {
   display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+
+.user-card:hover {
+  background-color: #f7fbff;
+  cursor: pointer;
+}
+
+.selected-user {
+  background-color: #f0f8ff !important;
+}
+
+.user-card p {
+  margin: 0;
 }
 
 .user-icon {
   background-color: cornflowerblue;
-  height: 50px;
-  width: 50px;
+  height: 48px;
+  width: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  margin-right: 16px;
 }
 
 .user-icon p {
-  margin: 0;
+  color: white;
+  font-weight: bold;
 }
