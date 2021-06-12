@@ -15,6 +15,6 @@
 .group-icon:hover, .selected-group {
   border-radius: 30%;
   cursor: pointer;
-  transition: ease-in-out 0.2s;
+  transition: ease-in-out 0.1s;
   background-color: cornflowerblue;
 }
