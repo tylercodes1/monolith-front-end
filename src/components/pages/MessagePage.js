@@ -1,12 +1,11 @@
 import React from "react";
 import "./MessagePage.css";
-import MessageInput from "./../MessageInput/MessageInput";
+import Dialog from "./../Dialog/Dialog";
 
 const MessagePage = () => {
 	return (
 		<div className="message-page">
-			<div>messagepage</div>
-			<MessageInput />
+			<Dialog></Dialog>
 		</div>
 	);
 };
