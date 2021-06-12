@@ -1,4 +1,5 @@
 import React from "react";
+import MessageInput from "./../MessageInput/MessageInput";
 
 const Dialog = () => {
 	return (
