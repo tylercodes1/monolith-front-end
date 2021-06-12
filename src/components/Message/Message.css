@@ -1,0 +1,20 @@
+.message-container {
+	display: flex;
+	justify-content: flex-start;
+	margin: 10px;
+	width: 90%;
+}
+
+.message-container > p {
+	border-radius: 5px;
+	width: fit-content;
+	word-wrap: break-word;
+	max-width: 55vw;
+	padding: 5px 10px;
+	margin: 0px 0px;
+	background-color: lightgreen;
+}
+
+.message-container.user-sent {
+	justify-content: flex-end;
+}
