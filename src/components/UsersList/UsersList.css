@@ -1,0 +1,17 @@
+.user-card {
+  display: flex;
+}
+
+.user-icon {
+  background-color: cornflowerblue;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.user-icon p {
+  margin: 0;
+}
