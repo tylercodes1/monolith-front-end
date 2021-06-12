@@ -47,7 +47,7 @@ export default function UserList({ onSelect, selected }) {
   );
 }
 
-function UserCard({ user, onSelect, selected}) {
+function UserCard({ user, onSelect, selected }) {
   return (
     <div
       className={Joiner("user-card", selected.userId === user.userId ? "selected-user" : "")}

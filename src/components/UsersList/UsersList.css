@@ -27,9 +27,6 @@
   align-items: center;
   border-radius: 50%;
   margin-right: 16px;
-}
-
-.user-icon p {
   color: white;
   font-weight: bold;
 }
