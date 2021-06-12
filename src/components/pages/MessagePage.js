@@ -6,7 +6,7 @@ import UsersList from "./../UsersList/UsersList";
 const MessagePage = () => {
 	return (
 		<div className="message-page">
-			<Dialog></Dialog>
+			<Dialog />
 			<UsersList />
 		</div>
 	);
