@@ -8,7 +8,7 @@ const MessagePage = () => {
 	console.log(selectedUser);
 	return (
 		<div className="message-page">
-			<Dialog></Dialog>
+			<Dialog />
 			<UsersList onSelect={setSelectedUser} selected={selectedUser} />
 		</div>
 	);
