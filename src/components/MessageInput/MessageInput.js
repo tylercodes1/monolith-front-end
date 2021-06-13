@@ -22,12 +22,12 @@ const MessageInput = () => {
 				"content-type": "application/json",
 			};
 
-			await axios({
-				url: url + "/message",
-				method: "post",
-				data: body,
-				headers: headers,
-			});
+			// await axios({
+			// 	url: url + "/message",
+			// 	method: "post",
+			// 	data: body,
+			// 	headers: headers,
+			// });
 			setChatValue("");
 		}
 	};

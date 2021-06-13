@@ -39,7 +39,7 @@ const MessagePage = () => {
 	]);
 	const [selectedGroup, setSelectedGroup] = useState(groups[0]);
 	const [messages, setMessages] = useState([]);
-	const currUsersGroups = getCurrGroups(selectedUser, groups);
+	const currUsersGroups = getCurrGroups();
 	const [loading, setLoading] = useState(true);
 	const [delay] = useState(1000);
 
@@ -51,14 +51,10 @@ const MessagePage = () => {
 	// }, delay);
 
 	const messagePageContext = {
-		setUsers,
-		setGroups,
 		currUsersGroups,
-		allGroups,
-		allMessages,
 		getMessagesByGroup,
+		groups,
 		messages,
-		setMessages,
 		users,
 		setSelectedGroup,
 		selectedGroup,
@@ -66,12 +62,11 @@ const MessagePage = () => {
 		selectedUser,
 	};
 
-	useEffect(async () => {
+	useEffect(() => {
 		async function fetchData() {
 			const usersPromise = axios.get(url + "/user");
 			const groupsPromise = axios.get(url + "/groupuser");
 			const messagesPromise = axios.get(url + "/message");
-
 			const res = await Promise.all([
 				usersPromise,
 				groupsPromise,
@@ -79,11 +74,12 @@ const MessagePage = () => {
 			]);
 			console.log(res);
 			setUsers(res[0].data);
-			setGroups(res[1].data);
+			// setGroups(res[1].data);
 			setMessages(res[2].data);
 			setLoading(false);
 		}
 		fetchData();
+		setLoading(false);
 	}, []);
 
 	return loading ? (
@@ -106,9 +102,9 @@ const MessagePage = () => {
 		return messages.filter((message) => message.group.groupId === groupId);
 	}
 
-	function getCurrGroups(user, groups) {
+	function getCurrGroups() {
 		const newCurrGroups = groups.filter(
-			(userGroup) => userGroup.user.userId === user.userId
+			(userGroup) => userGroup.user.userId === selectedUser.userId
 		);
 		if (!newCurrGroups.includes(selectedGroup))
 			setSelectedGroup(newCurrGroups[0]);

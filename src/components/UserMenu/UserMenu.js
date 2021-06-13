@@ -7,7 +7,6 @@ import "./UserMenu.css";
 export default function UserMenu() {
 	const { users, setSelectedUser, selectedUser } =
 		useContext(MessagePageContext);
-
 	return (
 		<div id="user-menu">
 			<p>Select the user you'd like to be!</p>
@@ -26,6 +25,8 @@ export default function UserMenu() {
 }
 
 function UserMenuItem({ user, setSelected, selected }) {
+	console.log(selected, user);
+
 	return (
 		<div
 			key={user.userId}

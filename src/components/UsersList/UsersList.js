@@ -2,12 +2,11 @@ import React, { useContext } from "react";
 import "./UsersList.css";
 import MessagePageContext from "./../pages/Context/MessagePageContext";
 import UserIcon from "./../UserIcon/UserIcon";
-import allGroups from "./../../dummyData";
 
 export default function UserList() {
-	const { selectedGroup, allGroups } = useContext(MessagePageContext);
+	const { selectedGroup, groups } = useContext(MessagePageContext);
 
-	const members = allGroups.filter(
+	const members = groups.filter(
 		(userGroup) => userGroup.group.groupId === selectedGroup.group.groupId
 	);
 
