@@ -5,15 +5,6 @@
   border-radius: 4px;
 }
 
-.user-card:hover {
-  background-color: #f7fbff;
-  cursor: pointer;
-}
-
-.selected-user {
-  background-color: #f0f8ff !important;
-}
-
 .user-card p {
   margin: 0;
 }

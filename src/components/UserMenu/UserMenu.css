@@ -1,0 +1,36 @@
+#user-menu {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  margin-top: 16px;
+  z-index: 10;
+  text-align: center;
+  padding: 8px; 
+  border-radius: 8px;
+}
+
+#user-menu-items {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-menu-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  padding-left: 0;
+  border-radius: 4px;
+}
+
+.user-menu-item:hover {
+  background-color: #f7fbff;
+  cursor: pointer;
+}
+
+.selected-user {
+  background-color: #f0f8ff !important;
+}
+
+.user-menu-item p {
+  margin: 0;
+}
