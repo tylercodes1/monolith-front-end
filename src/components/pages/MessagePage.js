@@ -6,7 +6,13 @@ import GroupsList from "./../GroupsList/GroupsList";
 import MessagePageContext from "./Context/MessagePageContext";
 
 const MessagePage = () => {
-	const [selectedUser, setSelectedUser] = useState({});
+	const [selectedUser, setSelectedUser] = useState({
+		email: "abc@gmail.com",
+			firstName: "Annie",
+			lastName: "Tang",
+			userId: 0,
+			username: "Tangry",
+	});
 	const [selectedGroup, setSelectedGroup] = useState({
 		group: {
 			groupId: 0,
@@ -142,4 +148,9 @@ const MessagePage = () => {
 	);
 };
 
+function getMessagesByGroup(groupId) {
+
+}
+
 export default MessagePage;
+

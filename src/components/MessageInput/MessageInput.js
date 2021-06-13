@@ -4,12 +4,8 @@ import "./MessageInput.css";
 
 const MessageInput = () => {
 	const [chatValue, setChatValue] = useState("");
-<<<<<<< HEAD
-	const { selectedGroup } = useContext(MessagePageContext);
-=======
 	const { selectedGroup, selectedUser, msgs, setMsgs } =
 		useContext(MessagePageContext);
->>>>>>> f9dc558af39ae22099df2507de8e5e2da9003449
 
 	const handleSubmit = (e) => {
 		e.preventDefault();

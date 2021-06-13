@@ -1,61 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./GroupsList.css";
 import { Joiner } from "./../../helpers";
-import ReactTooltip from 'react-tooltip';
+import ReactTooltip from "react-tooltip";
+import MessagePageContext from "./../pages/Context/MessagePageContext";
+import allGroups from "./../../dummyData";
 
-export default function GroupsList({ onSelect, selected }) {
-  const groups = [
-    {
-      group: {
-        groupId: 0,
-        groupName: "Burger Lovers",
-      },
-      id: 0,
-      user: {
-        email: "abc@gmail.com",
-        firstName: "Annie",
-        lastName: "Tang",
-        userId: 0,
-        username: "Tangry",
-      },
-    },
-    {
-      group: {
-        groupId: 1,
-        groupName: "Safemoon To the Moon",
-      },
-      id: 1,
-      user: {
-        email: "def@gmail.com",
-        firstName: "Tyler",
-        lastName: "Kim",
-        userId: 1,
-        username: "GamerGhost99",
-      },
-    },
-    {
-      group: {
-        groupId: 2,
-        groupName: "Potato Landers",
-      },
-      id: 1,
-      user: {
-        email: "def@gmail.com",
-        firstName: "Tyler",
-        lastName: "Kim",
-        userId: 1,
-        username: "GamerGhost99",
-      },
-    },
-  ];
+export default function GroupsList() {
+  const { selectedUser, setSelectedGroup, selectedGroup } = useContext(MessagePageContext);
+
+  const currUsersGroups = getCurrGroups(selectedUser);
 
   return (
     <div>
-      {groups.map((userGroup) => (
+      {currUsersGroups.map((userGroup) => (
         <GroupIcon
-        userGroup={userGroup}
-          onSelect={onSelect}
-          selected={selected}
+          userGroup={userGroup}
+          onSelect={setSelectedGroup}
+          selected={selectedGroup}
           key={userGroup.group.groupId}
         />
       ))}
@@ -67,7 +28,8 @@ function GroupIcon({ userGroup, onSelect, selected }) {
   return (
     <>
       <div
-        data-tip={userGroup.group.groupName} data-for={userGroup.group.groupId.toString()}
+        data-tip={userGroup.group.groupName}
+        data-for={userGroup.group.groupId.toString()}
         onClick={() => onSelect(userGroup)}
         className={Joiner(
           "group-icon",
@@ -76,7 +38,16 @@ function GroupIcon({ userGroup, onSelect, selected }) {
       >
         {userGroup.group.groupName.substring(0, 1)}
       </div>
-      <ReactTooltip place="right" type="dark" effect="solid" id={userGroup.group.groupId.toString()} />
-    </> 
+      <ReactTooltip
+        place="right"
+        type="dark"
+        effect="solid"
+        id={userGroup.group.groupId.toString()}
+      />
+    </>
   );
+}
+
+function getCurrGroups(user) {
+  return allGroups.filter((userGroup) => userGroup.user.userId === user.userId);
 }
