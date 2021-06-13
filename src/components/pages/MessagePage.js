@@ -4,6 +4,8 @@ import Dialog from "./../Dialog/Dialog";
 import UsersList from "./../UsersList/UsersList";
 import GroupsList from "./../GroupsList/GroupsList";
 import MessagePageContext from "./Context/MessagePageContext";
+import allGroups from "./../../dummyData";
+import allMessages from "./../../messagesDummyData";
 
 const MessagePage = () => {
 	const users = [
@@ -38,86 +40,13 @@ const MessagePage = () => {
 		},
 	});
 
-	const [msgs, setMsgs] = useState([
-		{
-			group: {
-				groupId: 1,
-				groupName: "This is library",
-			},
-			message: "message from ANNIE, WHO IS ALSO LOGGED IN",
-			messageId: 1,
-			user: {
-				email: "abc@gmail.com",
-				firstName: "Annie",
-				lastName: "Tang",
-				userId: 0,
-				username: "Tangry",
-			},
-		},
-		{
-			group: {
-				groupId: 1,
-				groupName: "This is library",
-			},
-			message: "MSG FROM tyler",
-			messageId: 2,
-			user: {
-				email: "xyz@gmail.com",
-				firstName: "Tyler",
-				lastName: "Kim",
-				userId: 1,
-				username: "GamerGhost99",
-			},
-		},
-		{
-			group: {
-				groupId: 1,
-				groupName: "This is library",
-			},
-			message: "second one",
-			messageId: 3,
-			user: {
-				email: "xyz@gmail.com",
-				firstName: "Tyler",
-				lastName: "Kim",
-				userId: 1,
-				username: "GamerGhost99",
-			},
-		},
-		{
-			group: {
-				groupId: 1,
-				groupName: "This is library",
-			},
-			message: "second one",
-			messageId: 4,
-			user: {
-				email: "xyz@gmail.com",
-				firstName: "Melody",
-				lastName: "Kim",
-				userId: 2,
-				username: "RosieTheDog",
-			},
-		},
-		{
-			group: {
-				groupId: 1,
-				groupName: "This is library",
-			},
-			message: "second one",
-			messageId: 5,
-			user: {
-				email: "xyz@gmail.com",
-				firstName: "Melody",
-				lastName: "Kim",
-				userId: 2,
-				username: "RosieTheDog",
-			},
-		},
-	]);
+	const [msgs, setMsgs] = useState(allMessages);
 
 	const messagePageContext = {
 		hello: "hello message page context",
+		allGroups,
+		allMessages,
+		getMessagesByGroup,
 		msgs,
 		setMsgs,
 		users,
@@ -126,7 +55,6 @@ const MessagePage = () => {
 		setSelectedUser,
 		selectedUser,
 	};
-
 	return (
 		<MessagePageContext.Provider value={messagePageContext}>
 			<div className="message-page">
@@ -139,8 +67,7 @@ const MessagePage = () => {
 };
 
 function getMessagesByGroup(groupId) {
-
+	return allMessages.filter((message) => message.group.groupId === groupId);
 }
 
 export default MessagePage;
-
