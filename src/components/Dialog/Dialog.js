@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import MessageInput from "./../MessageInput/MessageInput";
 
 import "./Dialog.css";
 import Message from "../Message/Message";
+import MessagePageContext from "./../pages/Context/MessagePageContext";
 
 const Dialog = () => {
 	const [msg, setMsg] = useState([
@@ -31,6 +32,8 @@ const Dialog = () => {
 
 	const [loggedInUser, setLoggedInUser] = useState(users[0]);
 
+	const { hello } = useContext(MessagePageContext);
+
 	const handleMessage = (msg, user, i) => {
 		return (
 			<Message
@@ -47,6 +50,7 @@ const Dialog = () => {
 			{msg.map((msg, i) => {
 				return handleMessage(msg, loggedInUser, i);
 			})}
+			<div>{hello}</div>
 			<MessageInput />
 		</div>
 	);
