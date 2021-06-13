@@ -128,6 +128,7 @@ const MessagePage = () => {
 		users,
 		loggedInUser,
 		setSelectedGroup,
+		selectedGroup,
 		setSelectedUser,
 		selectedUser,
 	};
