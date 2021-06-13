@@ -1,0 +1,34 @@
+.user-icon {
+  background-color: gray;
+  height: 48px;
+  width: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 16px;
+  color: white;
+  font-weight: bold;
+}
+
+.small {
+  height: 36px;
+  width: 36px;
+  font-size: small;
+}
+
+.red {
+  background-color: salmon;
+}
+
+.yellow {
+  background-color: khaki;
+}
+
+.green {
+  background-color: yellowgreen;
+}
+
+.blue {
+  background-color: cornflowerblue;
+}

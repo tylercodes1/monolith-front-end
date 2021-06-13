@@ -17,16 +17,3 @@
 .user-card p {
   margin: 0;
 }
-
-.user-icon {
-  background-color: cornflowerblue;
-  height: 48px;
-  width: 48px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  margin-right: 16px;
-  color: white;
-  font-weight: bold;
-}
