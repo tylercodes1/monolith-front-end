@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./UsersList.css";
 import { Joiner } from "./../../helpers";
 import MessagePageContext from "./../pages/Context/MessagePageContext";
+import UserIcon from "./../UserIcon/UserIcon";
 
 export default function UserList() {
 	const users = [
@@ -23,14 +24,14 @@ export default function UserList() {
 			email: "ghi@gmail.com",
 			firstName: "Rosie",
 			lastName: "TheDog",
-			userId: 3,
+			userId: 2,
 			username: "RosieTheDog",
 		},
 		{
 			email: "jkl@gmail.com",
 			firstName: "Kobe",
 			lastName: "TheDog",
-			userId: 4,
+			userId: 3,
 			username: "KobeTheDog",
 		},
 	];
@@ -60,9 +61,7 @@ function UserCard({ user, onSelect, selected }) {
 			)}
 			onClick={() => onSelect(user)}
 		>
-			<div className="user-icon">
-				<p>{user.username.substring(0, 1)}</p>
-			</div>
+			<UserIcon user={user} />
 			<p>{user.username}</p>
 		</div>
 	);
