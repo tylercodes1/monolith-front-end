@@ -6,25 +6,28 @@ import Message from "../Message/Message";
 import MessagePageContext from "./../pages/Context/MessagePageContext";
 
 const Dialog = () => {
-	const { hello, msgs, user, loggedInUser } = useContext(MessagePageContext);
+	const { msgs, user, loggedInUser } = useContext(MessagePageContext);
 
-	const handleMessage = (msg, user, i) => {
+	const handleMessage = (prevName, msg, user, i) => {
 		return (
 			<Message
-				userSent={msg.user.username == user.username ? true : false}
+				prevName={prevName}
+				userSent={msg.user.username === user.username}
 				key={i}
 				message={msg.message}
 				name={msg.user.firstName}
+				user={msg.user}
 			/>
 		);
 	};
 
 	return (
 		<div className="dialog">
-			{msgs.map((msg, i) => {
-				return handleMessage(msg, loggedInUser, i);
+			{msgs.map((msg, i, arr) => {
+				return i === 0
+					? handleMessage("", msg, loggedInUser, i)
+					: handleMessage(arr[i - 1].user.firstName, msg, loggedInUser, i);
 			})}
-			<div>{hello}</div>
 			<MessageInput />
 		</div>
 	);
