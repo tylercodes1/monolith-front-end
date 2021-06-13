@@ -53,6 +53,51 @@ const MessagePage = () => {
 				username: "tylercodes1",
 			},
 		},
+		{
+			group: {
+				groupId: 1,
+				groupName: "This is library",
+			},
+			message: "second one",
+			messageId: 3,
+			user: {
+				email: "xyz@gmail.com",
+				firstName: "Tyler",
+				lastName: "Kim",
+				userId: 2,
+				username: "tylercodes1",
+			},
+		},
+		{
+			group: {
+				groupId: 1,
+				groupName: "This is library",
+			},
+			message: "second one",
+			messageId: 4,
+			user: {
+				email: "xyz@gmail.com",
+				firstName: "Melody",
+				lastName: "Kim",
+				userId: 2,
+				username: "tylercodes1",
+			},
+		},
+		{
+			group: {
+				groupId: 1,
+				groupName: "This is library",
+			},
+			message: "second one",
+			messageId: 5,
+			user: {
+				email: "xyz@gmail.com",
+				firstName: "Melody",
+				lastName: "Kim",
+				userId: 2,
+				username: "tylercodes1",
+			},
+		},
 	]);
 
 	const users = [

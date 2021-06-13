@@ -2,16 +2,17 @@ import React from "react";
 
 import "./Message.css";
 
-const Message = ({ userSent, message, name }) => {
+const Message = ({ prevName, userSent, message, name }) => {
+	console.log(prevName, name);
 	return (
 		<div
 			className={
 				userSent ? "message-container user-sent" : "message-container"
 			}
 		>
-			{!userSent && <div>{name}</div>}
+			{!userSent && prevName !== name && <div>{name}</div>}
 			<p>{message}</p>
-			{userSent && <div>{name}</div>}
+			{userSent && prevName !== name && <div>{name}</div>}
 		</div>
 	);
 };
