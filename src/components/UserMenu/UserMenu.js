@@ -13,6 +13,7 @@ export default function UserMenu() {
       <div id="user-menu-items">
         {users.map((user) => (
           <UserMenuItem
+            key={user.userId}
             user={user}
             setSelected={setSelectedUser}
             selected={selectedUser}
