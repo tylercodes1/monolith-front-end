@@ -6,7 +6,7 @@ import Message from "../Message/Message";
 import MessagePageContext from "./../pages/Context/MessagePageContext";
 
 const Dialog = () => {
-	const { hello, msgs, user, loggedInUser } = useContext(MessagePageContext);
+	const { msgs, user, loggedInUser } = useContext(MessagePageContext);
 
 	const handleMessage = (prevName, msg, user, i) => {
 		return (
@@ -28,7 +28,6 @@ const Dialog = () => {
 					? handleMessage("", msg, loggedInUser, i)
 					: handleMessage(arr[i - 1].user.firstName, msg, loggedInUser, i);
 			})}
-			<div>{hello}</div>
 			<MessageInput />
 		</div>
 	);
