@@ -1,63 +1,69 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./UsersList.css";
 import { Joiner } from "./../../helpers";
+import MessagePageContext from "./../pages/Context/MessagePageContext";
 
-export default function UserList({ onSelect, selected }) {
-  const users = [
-    {
-      email: "abc@gmail.com",
-      firstName: "Annie",
-      lastName: "Tang",
-      userId: 0,
-      username: "Tangry",
-    },
-    {
-      email: "def@gmail.com",
-      firstName: "Tyler",
-      lastName: "Kim",
-      userId: 1,
-      username: "GamerGhost99",
-    },
-    {
-      email: "ghi@gmail.com",
-      firstName: "Rosie",
-      lastName: "TheDog",
-      userId: 3,
-      username: "RosieTheDog",
-    },
-    {
-      email: "jkl@gmail.com",
-      firstName: "Kobe",
-      lastName: "TheDog",
-      userId: 4,
-      username: "KobeTheDog",
-    },
-  ];
+export default function UserList() {
+	const users = [
+		{
+			email: "abc@gmail.com",
+			firstName: "Annie",
+			lastName: "Tang",
+			userId: 0,
+			username: "Tangry",
+		},
+		{
+			email: "def@gmail.com",
+			firstName: "Tyler",
+			lastName: "Kim",
+			userId: 1,
+			username: "GamerGhost99",
+		},
+		{
+			email: "ghi@gmail.com",
+			firstName: "Rosie",
+			lastName: "TheDog",
+			userId: 3,
+			username: "RosieTheDog",
+		},
+		{
+			email: "jkl@gmail.com",
+			firstName: "Kobe",
+			lastName: "TheDog",
+			userId: 4,
+			username: "KobeTheDog",
+		},
+	];
 
-  return (
-    <div>
-      {users.map((user) => (
-        <UserCard
-          key={user.userId + user.username}
-          user={user}
-          onSelect={onSelect}
-          selected={selected}
-        />
-      ))}
-    </div>
-  );
+	const { setSelectedUser, selectedUser } = useContext(MessagePageContext);
+
+	return (
+		<div>
+			{users.map((user) => (
+				<UserCard
+					key={user.userId + user.username}
+					user={user}
+					onSelect={setSelectedUser}
+					selected={selectedUser}
+				/>
+			))}
+		</div>
+	);
 }
 
 function UserCard({ user, onSelect, selected }) {
-  return (
-    <div
-      className={Joiner("user-card", (selected.userId === user.userId && "selected-user"))}
-      onClick={() => onSelect(user)}
-    >
-      <div className="user-icon">
-        <p>{user.username.substring(0, 1)}</p>
-      </div>
-      <p>{user.username}</p>
-    </div>
-  );
+	return (
+		<div
+			className={Joiner(
+				"user-card",
+				selected.userId === user.userId && "selected-user"
+			)}
+			onClick={() => onSelect(user)}
+		>
+			<div className="user-icon">
+				<p>{user.username.substring(0, 1)}</p>
+			</div>
+			<p>{user.username}</p>
+		</div>
+	);
 }
