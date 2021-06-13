@@ -7,7 +7,6 @@ import MessagePageContext from "./Context/MessagePageContext";
 import allGroups from "./../../dummyData";
 import allMessages from "./../../messagesDummyData";
 import UserMenu from "./../UserMenu/UserMenu";
-import allUsers from "./../../userDummyData";
 import axios from "axios";
 import { CircularProgress } from "@material-ui/core";
 import url from "./../../api/URL";
@@ -22,19 +21,34 @@ const MessagePage = () => {
 		userId: 0,
 		username: "string",
 	});
-	const [groups, setGroups] = useState(allGroups);
+	const [groups, setGroups] = useState([
+		{
+			group: {
+				groupId: 0,
+				groupName: "string",
+			},
+			id: 0,
+			user: {
+				email: "string",
+				firstName: "string",
+				lastName: "string",
+				userId: 0,
+				username: "string",
+			},
+		},
+	]);
 	const [selectedGroup, setSelectedGroup] = useState(groups[0]);
 	const [messages, setMessages] = useState([]);
 	const currUsersGroups = getCurrGroups(selectedUser, groups);
 	const [loading, setLoading] = useState(true);
 	const [delay] = useState(1000);
 
-	useInterval(async () => {
-		const messagesPromise = axios.get(url + "/message");
-		const res = await Promise.all([messagesPromise]);
-		console.log(res[0].data);
-		setMessages(res[0].data);
-	}, delay);
+	// useInterval(async () => {
+	// 	const messagesPromise = axios.get(url + "/message");
+	// 	const res = await Promise.all([messagesPromise]);
+	// 	console.log(res[0].data);
+	// 	setMessages(res[0].data);
+	// }, delay);
 
 	const messagePageContext = {
 		setUsers,
@@ -53,19 +67,23 @@ const MessagePage = () => {
 	};
 
 	useEffect(async () => {
-		const usersPromise = axios.get(url + "/user");
-		const groupsPromise = axios.get(url + "/groupuser");
-		const messagesPromise = axios.get(url + "/message");
+		async function fetchData() {
+			const usersPromise = axios.get(url + "/user");
+			const groupsPromise = axios.get(url + "/groupuser");
+			const messagesPromise = axios.get(url + "/message");
 
-		const res = await Promise.all([
-			usersPromise,
-			groupsPromise,
-			messagesPromise,
-		]);
-		setUsers(res[0].data);
-		setSelectedUser(res[0].data[0]);
-		setGroups(res[1].data);
-		setLoading(false);
+			const res = await Promise.all([
+				usersPromise,
+				groupsPromise,
+				messagesPromise,
+			]);
+			console.log(res);
+			setUsers(res[0].data);
+			setGroups(res[1].data);
+			setMessages(res[2].data);
+			setLoading(false);
+		}
+		fetchData();
 	}, []);
 
 	return loading ? (
@@ -76,9 +94,9 @@ const MessagePage = () => {
 		<MessagePageContext.Provider value={messagePageContext}>
 			<div className="message-page">
 				<UserMenu />
-				<GroupsList onSelect={setSelectedGroup} selected={selectedGroup} />
+				<GroupsList />
 				<Dialog />
-				<UsersList onSelect={setSelectedUser} selected={selectedUser} />
+				<UsersList />
 			</div>
 		</MessagePageContext.Provider>
 	);

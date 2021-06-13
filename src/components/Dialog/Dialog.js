@@ -9,7 +9,6 @@ const Dialog = () => {
 	const { selectedUser, selectedGroup, getMessagesByGroup, messages } =
 		useContext(MessagePageContext);
 	const msgs = getMessagesByGroup(selectedGroup.group.groupId, messages);
-
 	const handleMessage = (prevName, msg, selectedUser, i) => {
 		return (
 			<Message

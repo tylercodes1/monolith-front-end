@@ -1,42 +1,36 @@
 import { React, useState, useContext } from "react";
 import MessagePageContext from "./../pages/Context/MessagePageContext";
 import "./MessageInput.css";
+import axios from "axios";
+import url from "./../../api/URL";
 
 const MessageInput = () => {
 	const [chatValue, setChatValue] = useState("");
-	const { selectedGroup, selectedUser, msgs, setMsgs } =
-		useContext(MessagePageContext);
+	const { selectedGroup, selectedUser } = useContext(MessagePageContext);
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const msg = chatValue.trim();
 		if (msg.length > 0) {
-			// do something with api here
-			const newMessage = {
-				group: selectedGroup.group,
-				user: selectedUser,
+			const body = JSON.stringify({
 				message: msg,
+				groupId: selectedGroup.group.groupId,
+				userId: selectedUser.userId,
+			});
+
+			const headers = {
+				"content-type": "application/json",
 			};
-			setMsgs([...msgs, newMessage]);
+
+			await axios({
+				url: url + "/message",
+				method: "post",
+				data: body,
+				headers: headers,
+			});
 			setChatValue("");
 		}
 	};
-
-	// {
-	//    group: {
-	//       groupId: 1,
-	//       groupName: "This is library",
-	//    },
-	//    message: "message from ANNIE, WHO IS ALSO LOGGED IN",
-	//    messageId: 1,
-	//    user: {
-	//       email: "abc@gmail.com",
-	//       firstName: "Annie",
-	//       lastName: "Tang",
-	//       userId: 0,
-	//       username: "Tangry",
-	//    },
-	// }
 
 	const handleChange = (e) => {
 		setChatValue(e.target.value);
