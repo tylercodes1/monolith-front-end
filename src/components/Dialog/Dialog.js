@@ -23,11 +23,18 @@ const Dialog = () => {
 
 	return (
 		<div className="dialog">
-			{msgs.map((msg, i, arr) => {
-				return i === 0
-					? handleMessage("", msg, loggedInUser, i)
-					: handleMessage(arr[i - 1].user.firstName, msg, loggedInUser, i);
-			})}
+			<div className="message-view">
+				{msgs.map((msg, i, arr) => {
+					return i === 0
+						? handleMessage("", msg, loggedInUser, i)
+						: handleMessage(
+								arr[i - 1].user.firstName,
+								msg,
+								loggedInUser,
+								i
+						  );
+				})}
+			</div>
 			<MessageInput />
 		</div>
 	);
