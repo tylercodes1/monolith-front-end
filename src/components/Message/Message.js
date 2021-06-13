@@ -4,7 +4,7 @@ import "./Message.css";
 import { Joiner } from "./../../helpers";
 import UserMessageIcon from "./UserMessageIcon/UserMessageIcon";
 
-const Message = ({ prevName, key, userSent, message, name, user }) => {
+const Message = ({ prevName, userSent, message, name, user }) => {
 	return (
 		<div
 			className={Joiner(
