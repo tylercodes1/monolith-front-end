@@ -36,34 +36,24 @@ const MessagePage = () => {
 	useEffect(() => {
 		axios.get("http://monolith-service.herokuapp.com/hello").then((res) => {
 			console.log(res.data);
+			setLoading(false);
 		});
 	}, []);
 
-	switch (loading) {
-		case loading:
-			return (
-				<div className="message-page">
-					<CircularProgress />
-				</div>
-			);
-		case !loading:
-			return (
-				<MessagePageContext.Provider value={messagePageContext}>
-					<div className="message-page">
-						<UserMenu />
-						<GroupsList
-							onSelect={setSelectedGroup}
-							selected={selectedGroup}
-						/>
-						<Dialog />
-						<UsersList
-							onSelect={setSelectedUser}
-							selected={selectedUser}
-						/>
-					</div>
-				</MessagePageContext.Provider>
-			);
-	}
+	return loading ? (
+		<div className="message-page">
+			<CircularProgress />
+		</div>
+	) : (
+		<MessagePageContext.Provider value={messagePageContext}>
+			<div className="message-page">
+				<UserMenu />
+				<GroupsList onSelect={setSelectedGroup} selected={selectedGroup} />
+				<Dialog />
+				<UsersList onSelect={setSelectedUser} selected={selectedUser} />
+			</div>
+		</MessagePageContext.Provider>
+	);
 
 	// helper data-filtering functions
 	function getMessagesByGroup(groupId) {
