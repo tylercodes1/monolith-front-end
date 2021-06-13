@@ -6,7 +6,6 @@ import { Joiner } from "./../../helpers";
 import UserMessageIcon from "./UserMessageIcon/UserMessageIcon";
 
 const Message = ({ prevName, key, userSent, message, name, user }) => {
-	console.log(userSent);
 	return (
 		<div
 			className={Joiner(
