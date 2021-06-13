@@ -6,12 +6,12 @@ import Message from "../Message/Message";
 import MessagePageContext from "./../pages/Context/MessagePageContext";
 
 const Dialog = () => {
-	const { hello, msg, users, loggedInUser } = useContext(MessagePageContext);
+	const { hello, msgs, user, loggedInUser } = useContext(MessagePageContext);
 
 	const handleMessage = (msg, user, i) => {
 		return (
 			<Message
-				userSent={msg.sender == user.username ? true : false}
+				userSent={msg.user.username == user.username ? true : false}
 				key={i}
 				message={msg.message}
 				name={msg.recipient}
@@ -21,7 +21,7 @@ const Dialog = () => {
 
 	return (
 		<div className="dialog">
-			{msg.map((msg, i) => {
+			{msgs.map((msg, i) => {
 				return handleMessage(msg, loggedInUser, i);
 			})}
 			<div>{hello}</div>

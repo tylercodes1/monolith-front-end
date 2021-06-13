@@ -22,35 +22,61 @@ const MessagePage = () => {
 		},
 	});
 
-	const [msg, setMsg] = useState([
+	const [msgs, setMsgs] = useState([
 		{
-			message:
-				"hello this is a  realllyrealllyrealllyrealllyrealllyrealllyreallly  realllyrealllyrealllyrealllyrealllyrealllyreallly  realllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyreallly realllyrealllyrealllyrealllyrealllyreallly long message",
-			recipient: "loggedInUser",
-			sender: "otherUser",
+			group: {
+				groupId: 1,
+				groupName: "This is library",
+			},
+			message: "message from ANNIE, WHO IS ALSO LOGGED IN",
+			messageId: 1,
+			user: {
+				email: "abc@gmail.com",
+				firstName: "Annie",
+				lastName: "Tang",
+				userId: 1,
+				username: "Tangry",
+			},
 		},
 		{
-			message: `This is v0 of the chatting feature!`,
-			recipient: "otherUser",
-			sender: "loggedInUser",
-		},
-		{
-			message: `We currently support serverless, authenticationless, self messaging only LMFAO`,
-			recipient: "loggedInUser",
-			sender: "otherUser",
+			group: {
+				groupId: 1,
+				groupName: "This is library",
+			},
+			message: "MSG FROM tyler",
+			messageId: 2,
+			user: {
+				email: "xyz@gmail.com",
+				firstName: "Tyler",
+				lastName: "Kim",
+				userId: 2,
+				username: "tylercodes1",
+			},
 		},
 	]);
 
 	const users = [
-		{ name: "Tyler", username: "loggedInUser" },
-		{ name: "Andrew", username: "otherUser" },
+		{
+			email: "abc@gmail.com",
+			firstName: "Annie",
+			lastName: "Tang",
+			userId: 1,
+			username: "Tangry",
+		},
+		{
+			email: "xyz@gmail.com",
+			firstName: "Tyler",
+			lastName: "Kim",
+			userId: 2,
+			username: "tylercodes1",
+		},
 	];
 
 	const [loggedInUser, setLoggedInUser] = useState(users[0]);
 
 	const messagePageContext = {
 		hello: "hello message page context",
-		msg,
+		msgs,
 		users,
 		loggedInUser,
 	};
