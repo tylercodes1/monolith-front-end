@@ -1,6 +1,7 @@
 import React from "react";
 import "./GroupsList.css";
 import { Joiner } from "./../../helpers";
+import ReactTooltip from 'react-tooltip';
 
 export default function GroupsList({ onSelect, selected }) {
   const groups = [
@@ -32,19 +33,50 @@ export default function GroupsList({ onSelect, selected }) {
         username: "GamerGhost99",
       },
     },
+    {
+      group: {
+        groupId: 2,
+        groupName: "Potato Landers",
+      },
+      id: 1,
+      user: {
+        email: "def@gmail.com",
+        firstName: "Tyler",
+        lastName: "Kim",
+        userId: 1,
+        username: "GamerGhost99",
+      },
+    },
   ];
 
   return (
     <div>
-      {groups.map((group) => (
-        <GroupIcon group={group} onSelect={onSelect} selected={selected} key={group.group.groupId}/>
+      {groups.map((userGroup) => (
+        <GroupIcon
+        userGroup={userGroup}
+          onSelect={onSelect}
+          selected={selected}
+          key={userGroup.group.groupId}
+        />
       ))}
     </div>
   );
 }
 
-function GroupIcon({ group, onSelect, selected }) {
+function GroupIcon({ userGroup, onSelect, selected }) {
   return (
-    <div onClick={() => onSelect(group)} className={Joiner("group-icon", (group.group.groupId === selected.group.groupId && "selected-group"))}>{group.group.groupName.substring(0, 1)}</div>
+    <>
+      <div
+        data-tip={userGroup.group.groupName} data-for={userGroup.group.groupId.toString()}
+        onClick={() => onSelect(userGroup)}
+        className={Joiner(
+          "group-icon",
+          userGroup.group.groupId === selected.group.groupId && "selected-group"
+        )}
+      >
+        {userGroup.group.groupName.substring(0, 1)}
+      </div>
+      <ReactTooltip place="right" type="dark" effect="solid" id={userGroup.group.groupId.toString()} />
+    </> 
   );
 }
