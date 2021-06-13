@@ -1,7 +1,6 @@
 import React from "react";
 
 import "./Message.css";
-import UserIcon from "./../UserIcon/UserIcon";
 import { Joiner } from "./../../helpers";
 import UserMessageIcon from "./UserMessageIcon/UserMessageIcon";
 

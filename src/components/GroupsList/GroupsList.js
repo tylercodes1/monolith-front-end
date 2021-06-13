@@ -3,7 +3,6 @@ import "./GroupsList.css";
 import { Joiner } from "./../../helpers";
 import ReactTooltip from "react-tooltip";
 import MessagePageContext from "./../pages/Context/MessagePageContext";
-import allGroups from "./../../dummyData";
 
 export default function GroupsList() {
 	const { currUsersGroups, setSelectedGroup, selectedGroup } =
