@@ -19,7 +19,6 @@ const MessagePage = () => {
 	const [loading, setLoading] = useState(true);
 
 	const messagePageContext = {
-		users,
 		currUsersGroups,
 		allGroups,
 		allMessages,
