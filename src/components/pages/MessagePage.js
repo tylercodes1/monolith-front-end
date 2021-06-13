@@ -7,45 +7,17 @@ import MessagePageContext from "./Context/MessagePageContext";
 import allGroups from "./../../dummyData";
 import allMessages from "./../../messagesDummyData";
 import UserMenu from "./../UserMenu/UserMenu";
+import users from "./../../userDummyData";
 
 const MessagePage = () => {
-	const users = [
-		{
-			email: "abc@gmail.com",
-			firstName: "Annie",
-			lastName: "Tang",
-			userId: 0,
-			username: "Tangry",
-		},
-		{
-			email: "xyz@gmail.com",
-			firstName: "Tyler",
-			lastName: "Kim",
-			userId: 1,
-			username: "tylercodes1",
-		},
-	];
 	const [selectedUser, setSelectedUser] = useState(users[0]);
-	const [selectedGroup, setSelectedGroup] = useState({
-		group: {
-			groupId: 0,
-			groupName: "Burger Lovers",
-		},
-		id: 0,
-		user: {
-			email: "abc@gmail.com",
-			firstName: "Annie",
-			lastName: "Tang",
-			userId: 0,
-			username: "Tangry",
-		},
-	});
-
+	const [selectedGroup, setSelectedGroup] = useState(allGroups[0]);
 	const [msgs, setMsgs] = useState(allMessages);
 	const currUsersGroups = getCurrGroups(selectedUser);
 
 	const messagePageContext = {
 		hello: "hello message page context",
+		users,
 		currUsersGroups,
 		allGroups,
 		allMessages,
@@ -58,6 +30,7 @@ const MessagePage = () => {
 		setSelectedUser,
 		selectedUser,
 	};
+
 	return (
 		<MessagePageContext.Provider value={messagePageContext}>
 			<div className="message-page">
@@ -69,6 +42,7 @@ const MessagePage = () => {
 		</MessagePageContext.Provider>
 	);
 
+	// helper data-filtering functions
 	function getMessagesByGroup(groupId) {
 		return allMessages.filter((message) => message.group.groupId === groupId);
 	}
