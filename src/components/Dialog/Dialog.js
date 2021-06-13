@@ -16,6 +16,7 @@ const Dialog = () => {
 				key={i}
 				message={msg.message}
 				name={msg.user.firstName}
+				user={user}
 			/>
 		);
 	};
