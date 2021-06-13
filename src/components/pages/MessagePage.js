@@ -74,11 +74,17 @@ const MessagePage = () => {
 
 	const [loggedInUser, setLoggedInUser] = useState(users[0]);
 
+	// 1. select user
+	// 2. render groups
+
 	const messagePageContext = {
 		hello: "hello message page context",
 		msgs,
 		users,
 		loggedInUser,
+		setSelectedGroup,
+		setSelectedUser,
+		selectedUser,
 	};
 
 	return (
