@@ -22,8 +22,37 @@ const MessagePage = () => {
 		},
 	});
 
+	const [msg, setMsg] = useState([
+		{
+			message:
+				"hello this is a  realllyrealllyrealllyrealllyrealllyrealllyreallly  realllyrealllyrealllyrealllyrealllyrealllyreallly  realllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyrealllyreallly realllyrealllyrealllyrealllyrealllyreallly long message",
+			recipient: "loggedInUser",
+			sender: "otherUser",
+		},
+		{
+			message: `This is v0 of the chatting feature!`,
+			recipient: "otherUser",
+			sender: "loggedInUser",
+		},
+		{
+			message: `We currently support serverless, authenticationless, self messaging only LMFAO`,
+			recipient: "loggedInUser",
+			sender: "otherUser",
+		},
+	]);
+
+	const users = [
+		{ name: "Tyler", username: "loggedInUser" },
+		{ name: "Andrew", username: "otherUser" },
+	];
+
+	const [loggedInUser, setLoggedInUser] = useState(users[0]);
+
 	const messagePageContext = {
 		hello: "hello message page context",
+		msg,
+		users,
+		loggedInUser,
 	};
 
 	return (
