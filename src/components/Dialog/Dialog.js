@@ -12,11 +12,11 @@ const Dialog = () => {
 		return (
 			<Message
 				prevName={prevName}
-				userSent={msg.user.username == user.username ? true : false}
+				userSent={msg.user.username === user.username}
 				key={i}
 				message={msg.message}
 				name={msg.user.firstName}
-				user={user}
+				user={msg.user}
 			/>
 		);
 	};

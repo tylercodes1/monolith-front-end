@@ -1,8 +1,9 @@
 .message-container {
+	height: 36px;
 	display: flex;
 	justify-content: flex-start;
 	margin: 10px;
-	width: 90%;
+	width: 100%;
 }
 
 .message-container > p {
@@ -15,6 +16,9 @@
 	background-color: lightgreen;
 }
 
+.user-icon-filler {
+	width: 52px;
+}
 .message-container.user-sent {
 	justify-content: flex-end;
 }
