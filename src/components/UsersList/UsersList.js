@@ -1,68 +1,34 @@
 import React, { useContext } from "react";
 import "./UsersList.css";
-import { Joiner } from "./../../helpers";
 import MessagePageContext from "./../pages/Context/MessagePageContext";
 import UserIcon from "./../UserIcon/UserIcon";
+import allGroups from "./../../dummyData";
 
 export default function UserList() {
-	const users = [
-		{
-			email: "abc@gmail.com",
-			firstName: "Annie",
-			lastName: "Tang",
-			userId: 0,
-			username: "Tangry",
-		},
-		{
-			email: "def@gmail.com",
-			firstName: "Tyler",
-			lastName: "Kim",
-			userId: 1,
-			username: "GamerGhost99",
-		},
-		{
-			email: "ghi@gmail.com",
-			firstName: "Rosie",
-			lastName: "TheDog",
-			userId: 2,
-			username: "RosieTheDog",
-		},
-		{
-			email: "jkl@gmail.com",
-			firstName: "Kobe",
-			lastName: "TheDog",
-			userId: 3,
-			username: "KobeTheDog",
-		},
-	];
+  const { selectedGroup } = useContext(MessagePageContext);
+  const currUserGroups = allGroups.filter(
+    (userGroup) => userGroup.group.groupId === selectedGroup.group.groupId
+  );
+  console.log(currUserGroups);
 
-	const { setSelectedUser, selectedUser } = useContext(MessagePageContext);
-
-	return (
-		<div>
-			{users.map((user) => (
-				<UserCard
-					key={user.userId + user.username}
-					user={user}
-					onSelect={setSelectedUser}
-					selected={selectedUser}
-				/>
-			))}
-		</div>
-	);
+  return (
+    <div>
+			<p>Group Members</p>
+      {currUserGroups.map((userGroup) => (
+        <UserCard
+          key={userGroup.user.userId + userGroup.user.username}
+          user={userGroup.user}
+        />
+      ))}
+    </div>
+  );
 }
 
-function UserCard({ user, onSelect, selected }) {
-	return (
-		<div
-			className={Joiner(
-				"user-card",
-				selected.userId === user.userId && "selected-user"
-			)}
-			onClick={() => onSelect(user)}
-		>
-			<UserIcon user={user} />
-			<p>{user.username}</p>
-		</div>
-	);
+export function UserCard({ user }) {
+  return (
+    <div className="user-card">
+      <UserIcon user={user} />
+      <p>{user.username}</p>
+    </div>
+  );
 }

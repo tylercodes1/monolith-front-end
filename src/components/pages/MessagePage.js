@@ -4,6 +4,7 @@ import Dialog from "./../Dialog/Dialog";
 import UsersList from "./../UsersList/UsersList";
 import GroupsList from "./../GroupsList/GroupsList";
 import MessagePageContext from "./Context/MessagePageContext";
+import UserMenu from "./../UserMenu/UserMenu";
 
 const MessagePage = () => {
 	const users = [
@@ -130,6 +131,7 @@ const MessagePage = () => {
 	return (
 		<MessagePageContext.Provider value={messagePageContext}>
 			<div className="message-page">
+				<UserMenu />
 				<GroupsList onSelect={setSelectedGroup} selected={selectedGroup} />
 				<Dialog />
 				<UsersList onSelect={setSelectedUser} selected={selectedUser} />
