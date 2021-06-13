@@ -1,5 +1,6 @@
 import React from "react";
 import "./UsersList.css";
+import { Joiner } from "./../../helpers";
 
 export default function UserList({ onSelect, selected }) {
   const users = [
@@ -47,10 +48,10 @@ export default function UserList({ onSelect, selected }) {
   );
 }
 
-function UserCard({ user, onSelect, selected}) {
+function UserCard({ user, onSelect, selected }) {
   return (
     <div
-      className={Joiner("user-card", selected.userId === user.userId ? "selected-user" : "")}
+      className={Joiner("user-card", (selected.userId === user.userId && "selected-user"))}
       onClick={() => onSelect(user)}
     >
       <div className="user-icon">
@@ -59,9 +60,4 @@ function UserCard({ user, onSelect, selected}) {
       <p>{user.username}</p>
     </div>
   );
-}
-
-/** joins parameters into one string, separated with spaces */
-function Joiner(...styles) {
-  return styles.join(" ");
 }
