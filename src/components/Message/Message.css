@@ -2,8 +2,11 @@
 	height: 36px;
 	display: flex;
 	justify-content: flex-start;
-	margin: 10px;
 	width: 100%;
+}
+
+.message-container.new-message {
+	margin-top: 10px;
 }
 
 .message-container > p {

@@ -2,14 +2,17 @@ import React from "react";
 
 import "./Message.css";
 import UserIcon from "./../UserIcon/UserIcon";
+import { Joiner } from "./../../helpers";
 
 const Message = ({ prevName, key, userSent, message, name, user }) => {
 	console.log(prevName, name, user);
 	return (
 		<div
-			className={
-				userSent ? "message-container user-sent" : "message-container"
-			}
+			className={Joiner(
+				"message-container",
+				userSent && "user-sent",
+				prevName !== name && "new-message"
+			)}
 			key={key}
 		>
 			{!userSent && prevName !== name ? (
