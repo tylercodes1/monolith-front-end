@@ -6,13 +6,23 @@ import GroupsList from "./../GroupsList/GroupsList";
 import MessagePageContext from "./Context/MessagePageContext";
 
 const MessagePage = () => {
-	const [selectedUser, setSelectedUser] = useState({
-		email: "abc@gmail.com",
+	const users = [
+		{
+			email: "abc@gmail.com",
 			firstName: "Annie",
 			lastName: "Tang",
 			userId: 0,
 			username: "Tangry",
-	});
+		},
+		{
+			email: "xyz@gmail.com",
+			firstName: "Tyler",
+			lastName: "Kim",
+			userId: 1,
+			username: "tylercodes1",
+		},
+	];
+	const [selectedUser, setSelectedUser] = useState(users[0]);
 	const [selectedGroup, setSelectedGroup] = useState({
 		group: {
 			groupId: 0,
@@ -56,7 +66,7 @@ const MessagePage = () => {
 				firstName: "Tyler",
 				lastName: "Kim",
 				userId: 1,
-				username: "tylercodes1",
+				username: "GamerGhost99",
 			},
 		},
 		{
@@ -71,7 +81,7 @@ const MessagePage = () => {
 				firstName: "Tyler",
 				lastName: "Kim",
 				userId: 1,
-				username: "tylercodes1",
+				username: "GamerGhost99",
 			},
 		},
 		{
@@ -86,7 +96,7 @@ const MessagePage = () => {
 				firstName: "Melody",
 				lastName: "Kim",
 				userId: 2,
-				username: "tylercodes1",
+				username: "RosieTheDog",
 			},
 		},
 		{
@@ -101,36 +111,16 @@ const MessagePage = () => {
 				firstName: "Melody",
 				lastName: "Kim",
 				userId: 2,
-				username: "tylercodes1",
+				username: "RosieTheDog",
 			},
 		},
 	]);
-
-	const users = [
-		{
-			email: "abc@gmail.com",
-			firstName: "Annie",
-			lastName: "Tang",
-			userId: 0,
-			username: "Tangry",
-		},
-		{
-			email: "xyz@gmail.com",
-			firstName: "Tyler",
-			lastName: "Kim",
-			userId: 1,
-			username: "tylercodes1",
-		},
-	];
-
-	const [loggedInUser, setLoggedInUser] = useState(users[0]);
 
 	const messagePageContext = {
 		hello: "hello message page context",
 		msgs,
 		setMsgs,
 		users,
-		loggedInUser,
 		setSelectedGroup,
 		selectedGroup,
 		setSelectedUser,
