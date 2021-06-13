@@ -11,6 +11,7 @@ import allUsers from "./../../userDummyData";
 import axios from "axios";
 import { CircularProgress } from "@material-ui/core";
 import url from "./../../api/URL";
+import useInterval from "./../../util/useInterval";
 
 const MessagePage = () => {
 	const [users, setUsers] = useState([]);
@@ -26,6 +27,14 @@ const MessagePage = () => {
 	const [messages, setMessages] = useState([]);
 	const currUsersGroups = getCurrGroups(selectedUser, groups);
 	const [loading, setLoading] = useState(true);
+	const [delay] = useState(1000);
+
+	useInterval(async () => {
+		const messagesPromise = axios.get(url + "/message");
+		const res = await Promise.all([messagesPromise]);
+		console.log(res[0].data);
+		setMessages(res[0].data);
+	}, delay);
 
 	const messagePageContext = {
 		setUsers,
@@ -56,11 +65,7 @@ const MessagePage = () => {
 		setUsers(res[0].data);
 		setSelectedUser(res[0].data[0]);
 		setGroups(res[1].data);
-		// setMessages(res[2].data);
 		setLoading(false);
-		// await axios.get(url + "/user").then((res) => {
-		// 	setUsers(res.data);
-		// });
 	}, []);
 
 	return loading ? (
