@@ -16,7 +16,6 @@ const MessagePage = () => {
 	const currUsersGroups = getCurrGroups(selectedUser);
 
 	const messagePageContext = {
-		hello: "hello message page context",
 		users,
 		currUsersGroups,
 		allGroups,
