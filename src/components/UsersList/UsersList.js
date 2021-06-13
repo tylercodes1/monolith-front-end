@@ -5,15 +5,11 @@ import UserIcon from "./../UserIcon/UserIcon";
 import allGroups from "./../../dummyData";
 
 export default function UserList() {
-	const { selectedGroup } = useContext(MessagePageContext);
-	const currUserGroups = allGroups.filter(
-		(userGroup) => userGroup.group.groupId === selectedGroup.group.groupId
-	);
-
+	const { currUsersGroups } = useContext(MessagePageContext);
 	return (
 		<div>
 			<p>Group Members</p>
-			{currUserGroups.map((userGroup) => (
+			{currUsersGroups.map((userGroup) => (
 				<UserCard
 					key={userGroup.user.userId + userGroup.user.username}
 					user={userGroup.user}

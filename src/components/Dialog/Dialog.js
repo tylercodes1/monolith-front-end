@@ -6,9 +6,9 @@ import Message from "../Message/Message";
 import MessagePageContext from "./../pages/Context/MessagePageContext";
 
 const Dialog = () => {
-	const { selectedUser, selectedGroup, getMessagesByGroup } =
+	const { selectedUser, selectedGroup, getMessagesByGroup, messages } =
 		useContext(MessagePageContext);
-	const msgs = getMessagesByGroup(selectedGroup.group.groupId);
+	const msgs = getMessagesByGroup(selectedGroup.group.groupId, messages);
 
 	const handleMessage = (prevName, msg, selectedUser, i) => {
 		return (
