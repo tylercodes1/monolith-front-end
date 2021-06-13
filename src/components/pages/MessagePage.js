@@ -42,9 +42,11 @@ const MessagePage = () => {
 	});
 
 	const [msgs, setMsgs] = useState(allMessages);
+	const currUsersGroups = getCurrGroups(selectedUser);
 
 	const messagePageContext = {
 		hello: "hello message page context",
+		currUsersGroups,
 		allGroups,
 		allMessages,
 		getMessagesByGroup,
@@ -66,10 +68,19 @@ const MessagePage = () => {
 			</div>
 		</MessagePageContext.Provider>
 	);
-};
 
-function getMessagesByGroup(groupId) {
-	return allMessages.filter((message) => message.group.groupId === groupId);
-}
+	function getMessagesByGroup(groupId) {
+		return allMessages.filter((message) => message.group.groupId === groupId);
+	}
+
+	function getCurrGroups(user) {
+		const newCurrGroups = allGroups.filter(
+			(userGroup) => userGroup.user.userId === user.userId
+		);
+		if (!newCurrGroups.includes(selectedGroup))
+			setSelectedGroup(newCurrGroups[0]);
+		return newCurrGroups;
+	}
+};
 
 export default MessagePage;
