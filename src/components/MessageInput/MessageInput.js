@@ -1,9 +1,10 @@
-import { React, useState } from "react";
-
+import { React, useState, useContext } from "react";
+import MessagePageContext from "./../pages/Context/MessagePageContext";
 import "./MessageInput.css";
 
 const MessageInput = () => {
-	const [chatValue, setchatValue] = useState("");
+	const [chatValue, setChatValue] = useState("");
+	const { selectedGroup } = useContext(MessagePageContext);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -15,7 +16,7 @@ const MessageInput = () => {
 	};
 
 	const handleChange = (e) => {
-		setchatValue(e.value);
+		setChatValue(e.value);
 	};
 
 	return (
@@ -23,11 +24,11 @@ const MessageInput = () => {
 			<input
 				type="text"
 				className="chat-input"
-				placeholder="say something nice!"
+				placeholder={`Message ${selectedGroup.group.groupName}`}
 				value={chatValue}
 				onChange={(e) => handleChange(e)}
 			/>
-			<button>send</button>
+			<button className="chat-send">Send</button>
 		</form>
 	);
 };
