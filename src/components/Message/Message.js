@@ -9,7 +9,9 @@ const Message = ({ userSent, message, name }) => {
 				userSent ? "message-container user-sent" : "message-container"
 			}
 		>
+			{!userSent && <div>{name}</div>}
 			<p>{message}</p>
+			{userSent && <div>{name}</div>}
 		</div>
 	);
 };

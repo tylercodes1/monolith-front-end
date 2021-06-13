@@ -14,7 +14,7 @@ const Dialog = () => {
 				userSent={msg.user.username == user.username ? true : false}
 				key={i}
 				message={msg.message}
-				name={msg.recipient}
+				name={msg.user.firstName}
 			/>
 		);
 	};
