@@ -33,7 +33,7 @@ const MessagePage = () => {
 	};
 
 	useEffect(() => {
-		axios.get("http://monolith-service.herokuapp.com/hello").then((res) => {
+		axios.get("https://monolith-service.herokuapp.com/hello").then((res) => {
 			console.log(res.data);
 			setLoading(false);
 		});
