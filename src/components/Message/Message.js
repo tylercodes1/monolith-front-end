@@ -12,7 +12,6 @@ const Message = ({ prevName, userSent, message, name, user }) => {
 				userSent && "user-sent",
 				prevName !== name && "new-message"
 			)}
-			key={key}
 		>
 			<UserMessageIcon
 				prevName={prevName}
