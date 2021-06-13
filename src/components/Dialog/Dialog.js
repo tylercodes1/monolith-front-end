@@ -6,13 +6,13 @@ import Message from "../Message/Message";
 import MessagePageContext from "./../pages/Context/MessagePageContext";
 
 const Dialog = () => {
-	const { msgs, user, loggedInUser } = useContext(MessagePageContext);
+	const { msgs, user, selectedUser } = useContext(MessagePageContext);
 
-	const handleMessage = (prevName, msg, user, i) => {
+	const handleMessage = (prevName, msg, selectedUser, i) => {
 		return (
 			<Message
 				prevName={prevName}
-				userSent={msg.user.username === user.username}
+				userSent={msg.user.username === selectedUser.username}
 				key={i}
 				message={msg.message}
 				name={msg.user.firstName}
@@ -26,11 +26,11 @@ const Dialog = () => {
 			<div className="message-view">
 				{msgs.map((msg, i, arr) => {
 					return i === 0
-						? handleMessage("", msg, loggedInUser, i)
+						? handleMessage("", msg, selectedUser, i)
 						: handleMessage(
 								arr[i - 1].user.firstName,
 								msg,
-								loggedInUser,
+								selectedUser,
 								i
 						  );
 				})}
