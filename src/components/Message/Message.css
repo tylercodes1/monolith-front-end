@@ -16,7 +16,7 @@
 	max-width: 55vw;
 	padding: 5px 10px;
 	margin: 0px 0px;
-	background-color: lightgreen;
+	background-color: lightgrey;
 }
 
 .user-icon-filler {
@@ -24,4 +24,8 @@
 }
 .message-container.user-sent {
 	justify-content: flex-end;
+}
+
+.message-container.user-sent > p {
+	background-color: lightblue;
 }
