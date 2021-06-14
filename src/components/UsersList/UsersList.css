@@ -1,11 +1,10 @@
 .user-list {
-	width: 300px;
+	width: 250px;
 }
 
 .user-list > p {
 	display: flex;
 	justify-content: center;
-	font-weight: 600;
 }
 
 .user-card {
@@ -15,6 +14,10 @@
 	border-radius: 4px;
 }
 
-.user-card p {
-	margin: 0;
+.user-card > p {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin: 0px;
+	margin-left: 10px;
+	width: 100px;
 }
