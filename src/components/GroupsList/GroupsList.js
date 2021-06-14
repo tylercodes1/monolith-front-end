@@ -28,6 +28,7 @@ function GroupIcon({ userGroup, onSelect, selected }) {
 			<div
 				data-tip={userGroup.group.groupName}
 				data-for={userGroup.group.groupId.toString()}
+				data-class="shadow"
 				onClick={() => onSelect(userGroup)}
 				className={Joiner(
 					"group-icon",
