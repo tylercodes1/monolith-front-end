@@ -9,7 +9,7 @@ export default function GroupsList() {
 		useContext(MessagePageContext);
 
 	return (
-		<div>
+		<div className="groups-list">
 			{currUsersGroups.map((userGroup) => (
 				<GroupIcon
 					userGroup={userGroup}

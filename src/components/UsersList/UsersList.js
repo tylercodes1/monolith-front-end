@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import "./UsersList.css";
 import MessagePageContext from "./../pages/Context/MessagePageContext";
 import UserIcon from "./../UserIcon/UserIcon";
+
+import "./UsersList.css";
 
 export default function UserList() {
 	const { selectedGroup, groups } = useContext(MessagePageContext);
