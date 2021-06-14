@@ -1,10 +1,20 @@
+.user-list {
+	width: 300px;
+}
+
+.user-list > p {
+	display: flex;
+	justify-content: center;
+	font-weight: 600;
+}
+
 .user-card {
-  display: flex;
-  align-items: center;
-  padding: 8px 12px;
-  border-radius: 4px;
+	display: flex;
+	align-items: center;
+	padding: 8px 12px;
+	border-radius: 4px;
 }
 
 .user-card p {
-  margin: 0;
+	margin: 0;
 }

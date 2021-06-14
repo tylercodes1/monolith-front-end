@@ -11,7 +11,7 @@ export default function UserList() {
 	);
 
 	return (
-		<div>
+		<div className="user-list">
 			<p>Group Members</p>
 			{members.map((userGroup) => (
 				<UserCard
