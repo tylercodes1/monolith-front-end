@@ -6,8 +6,13 @@ import "./UserMenu.css";
 import { CircularProgress } from "@material-ui/core";
 
 export default function UserMenu() {
-  const { users, setSelectedUser, selectedUser } =
+  const { users, setSelectedUser, selectedUser, groups, selectedGroup} =
     useContext(MessagePageContext);
+
+  const members = groups.filter(
+    (userGroup) => userGroup.group.groupId === selectedGroup.group.groupId
+  );
+
   return (
     <div id="user-menu">
       <p>Select the user you'd like to be!</p>
@@ -19,6 +24,7 @@ export default function UserMenu() {
               user={user}
               setSelected={setSelectedUser}
               selected={selectedUser}
+              disabled={!members.some((member) => member.user.username === user.username)}
             />
           ))}
         </div>
@@ -29,13 +35,13 @@ export default function UserMenu() {
   );
 }
 
-function UserMenuItem({ user, setSelected, selected }) {
+function UserMenuItem({ user, setSelected, selected, disabled }) {
   return (
     <div
       key={user.userId}
       className={Joiner(
         "user-menu-item",
-        selected.userId === user.userId && "selected-user"
+        selected.userId === user.userId && "selected-user", disabled && "disabled"
       )}
       onClick={() => setSelected(user)}
     >

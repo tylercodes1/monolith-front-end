@@ -34,3 +34,8 @@
 .user-menu-item p {
   margin: 0;
 }
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}

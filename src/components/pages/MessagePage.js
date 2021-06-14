@@ -85,13 +85,6 @@ const MessagePage = () => {
 		const newCurrGroups = groups.filter(
 			(userGroup) => userGroup.user.userId === selectedUser.userId
 		);
-		if (
-			newCurrGroups.some(
-				(userGroup) => userGroup.group.groupId === selectedGroup.groupId
-			)
-		) {
-			setSelectedGroup(newCurrGroups[0]);
-		}
 		return newCurrGroups;
 	}
 };
