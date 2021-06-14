@@ -18,19 +18,19 @@
 }
 
 .red {
-	background-color: salmon;
+	background-color: #d62e9e;
 }
 
 .yellow {
-	background-color: khaki;
+	background-color: #e9e583;
 }
 
 .green {
-	background-color: yellowgreen;
+	background-color: #18c988;
 }
 
 .blue {
-	background-color: cornflowerblue;
+	background-color: rgb(119, 160, 236);
 }
 
 .shadow {

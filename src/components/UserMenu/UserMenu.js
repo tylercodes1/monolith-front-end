@@ -15,7 +15,7 @@ export default function UserMenu() {
 
   return (
     <div id="user-menu">
-      <p>Select the user you'd like to be!</p>
+      <p className="directions">Select the user you'd like to be!</p>
       {users.length > 0 ? (
         <div id="user-menu-items">
           {users.map((user) => (

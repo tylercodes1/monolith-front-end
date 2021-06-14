@@ -1,5 +1,5 @@
 #user-menu {
-  background-color: white;
+  background-color: #f2f3f5;
   position: fixed;
   top: 0;
   margin-top: 16px;
@@ -7,6 +7,7 @@
   text-align: center;
   padding: 8px; 
   border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 
 #user-menu-items {
@@ -23,12 +24,12 @@
 }
 
 .user-menu-item:hover {
-  background-color: #f7fbff;
-  cursor: pointer;
+  background-color: rgb(248, 248, 248);
+  cursor: pointer;  
 }
 
 .selected-user {
-  background-color: #f0f8ff !important;
+  background-color: white !important;
 }
 
 .user-menu-item p {
@@ -38,4 +39,8 @@
 .disabled {
   pointer-events: none;
   opacity: 0.5;
+}
+
+.directions {
+  font-weight: bold;
 }

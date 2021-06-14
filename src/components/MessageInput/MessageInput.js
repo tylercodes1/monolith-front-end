@@ -3,6 +3,7 @@ import MessagePageContext from "./../pages/Context/MessagePageContext";
 import "./MessageInput.css";
 import axios from "axios";
 import url from "./../../api/URL";
+import SendRoundedIcon from '@material-ui/icons/SendRounded';
 
 const MessageInput = () => {
 	const [chatValue, setChatValue] = useState("");
@@ -45,7 +46,7 @@ const MessageInput = () => {
 				value={chatValue}
 				onChange={(e) => handleChange(e)}
 			/>
-			<button className="chat-send">Send</button>
+			<SendRoundedIcon onClick={(e) => handleSubmit(e)} style={{ cursor: "pointer", color: "#4f5660" }} />
 		</form>
 	);
 };

@@ -7,6 +7,7 @@
 
 .message-container.new-message {
 	margin-top: 10px;
+	margin-bottom: 2px;
 }
 
 .message-container > p {
@@ -16,7 +17,7 @@
 	max-width: 55vw;
 	padding: 5px 10px;
 	margin: 0px 0px;
-	background-color: #c8cccc;
+	background-color: #f2f3f5;
 }
 
 .user-icon-filler {
@@ -27,5 +28,5 @@
 }
 
 .message-container.user-sent > p {
-	background-color: white;
+	background-color: rgba(100, 148, 237, 0.45);
 }
